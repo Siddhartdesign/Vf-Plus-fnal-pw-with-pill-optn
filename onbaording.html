@@ -402,7 +402,7 @@ const slantBtn = document.getElementById("slantBtn");
 const helpTargets = [
   { el: loadImgBtn, label: "Import image" },
   { el: clearImgBtn, label: "Clear image" },
-  { el: toggleCam, label: "Camera / background" },
+  { el: toggleCam, label: "Camera / background" dx: 19 },
   { el: switchBtn, label: "Switch camera" },
   { el: frameFab, label: "Frame ratios" },
   { el: customRatioBtn, label: "Custom frame" },
@@ -427,13 +427,15 @@ helpTargets.forEach((t, i)=>{
   tag.className = "help-label";
   tag.textContent = t.label;
 
+tag.style.left =
+  (r.left + r.width / 2 + 38 + (t.dx || 0)) + "px";
 
-tag.style.left = (r.left + r.width / 2) + "px";
+
 
 const screenMid = window.innerHeight / 2;
 tag.style.top =
   r.top < screenMid
-    ? (r.bottom + 60) + "px"   // top buttons → move DOWN toward center
+    ? (r.bottom + 192) + "px"   // top buttons → move DOWN toward center
     : (r.top - 60) + "px";     // bottom buttons → move UP toward center
 
 
