@@ -258,14 +258,15 @@
 
 #helpHint{
   position: fixed;
-  top: 54px;                 /* same vertical zone as note */
-  right: 22px;               /* aligns under 📸 in top bar */
-  font-size: 15px;
+  top: 58px;          /* just below top bar */
+  right: 26px;        /* safely away from canvas edge */
+  font-size: 14px;
   font-weight: 500;
   color: rgba(255,255,255,0.28);
   z-index: 91;
   user-select: none;
   touch-action: none;
+  padding: 4px;       /* SMALL hit area */
 }
 
 #helpHint:active {
@@ -383,7 +384,7 @@ const helpOverlay = document.getElementById("helpOverlay");
 
 let helpTimer = null;
 let helpActive = false;
-const HOLD_MS = 420;
+const HOLD_MS = 650;
     
 /* Bottom bar */
 const dotBtn = document.getElementById("dotBtn");
