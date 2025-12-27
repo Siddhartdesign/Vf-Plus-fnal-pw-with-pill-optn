@@ -427,14 +427,15 @@ helpTargets.forEach((t, i)=>{
   tag.className = "help-label";
   tag.textContent = t.label;
 
-  const verticalOffset = (i % 2 === 0) ? 8 : 34; // zig-zag
 
 tag.style.left = (r.left + r.width / 2) + "px";
 
-const isBottom = r.top > window.innerHeight / 2;
-tag.style.top = isBottom
-  ? (r.top - 40) + "px"      // bottom labels move UP (~½ inch)
-  : (r.bottom + 16) + "px"; // top labels move DOWN (~1 inch)
+const screenMid = window.innerHeight / 2;
+tag.style.top =
+  r.top < screenMid
+    ? (r.bottom + 60) + "px"   // top buttons → move DOWN toward center
+    : (r.top - 60) + "px";     // bottom buttons → move UP toward center
+
 
   helpOverlay.appendChild(tag);
 });
